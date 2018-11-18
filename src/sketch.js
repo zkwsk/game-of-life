@@ -1,3 +1,5 @@
+const debugmode = false;
+
 // How many pixel width of a rendered square
 const squareSize = 100;
 // Indicates the frequency of "dead" squares. Enter a number between 1 and 2.
@@ -25,8 +27,6 @@ export const initializeData = (columns, rows) => {
 
 export const countNeighbours = (x, y, data) => {
 
-  debugger;
-
   let sum = 0;
 
   // Iterate from -1 square "to the left" to +1 square "to the right"
@@ -48,7 +48,7 @@ export const countNeighbours = (x, y, data) => {
           // "wrap" the y-values.
           neighbourY = data[0].length - 1;
         }
-        console.log(`x: ${neighbourX} y: ${neighbourY} value: ${data[neighbourX][neighbourY]}`);
+        debugmode && console.log(`x: ${neighbourX} y: ${neighbourY} value: ${data[neighbourX][neighbourY]}`);
         sum += data[neighbourX][neighbourY];
       }
     }
@@ -67,26 +67,23 @@ export const sketch = (p5) => {
     canvas.parent('canvas');
     p5.frameRate(2);
     p5.background(44, 44, 44);
-    
+
     data = initializeData(columns, rows);
   };
-
-
-
 
   p5.draw = () => {
 
     p5.background(44, 44, 44);
 
-  // Draw grid
-  for (let column = 0; column < columns; column++) {
-    for (let row = 0; row < rows; row++) {
+    // Draw grid
+    for (let column = 0; column < columns; column++) {
+      for (let row = 0; row < rows; row++) {
 
         if (data[column][row] === 1) {
           p5.fill(255, 255, 255);
           p5.stroke(0)
           p5.rect(column * squareSize, row * squareSize, squareSize, squareSize);
-        }    
+        }
       }
     }
 
