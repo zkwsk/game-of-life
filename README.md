@@ -3,6 +3,10 @@
 
 It's not a line-by-line copy, but [this tutorial](https://www.youtube.com/watch?v=FWSR_7kZuYg) was used for inspiration. Besides tuning some of the logic, the canvas is now set up to resize and reload when the screen size changes, I've set up the project to have dependencies managed by NPM, rewritten it to ES6 and added a test suite.
 
+## Demo
+
+Live demo [here](https://yv9pk13lk9.codesandbox.io/)
+
 ## Rules
 * Any live cell with fewer than two live neighbors dies, as if by underpopulation.
 * Any live cell with two or three live neighbors lives on to the next generation.
