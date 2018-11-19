@@ -1,3 +1,5 @@
+import Shake from 'shake.js';
+
 const debugmode = false;
 
 // How many pixel width of a rendered square
@@ -193,3 +195,19 @@ export const sketch = (p5) => {
     }
   }, 250);
 }
+
+const shakeEvent = new Shake({
+  threshold: 50,
+  timeout: 1000
+});
+
+shakeEvent.start();
+
+window.addEventListener(
+  "shake",
+  () => {
+    // Reload data
+    data = initializeData(columns, rows);
+  },
+  false
+);
