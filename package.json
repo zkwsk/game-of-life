@@ -22,7 +22,8 @@
     "homepage": "",
     "dependencies": {
         "normalize.css": "^8.0.0",
-        "p5": "^0.7.2"
+        "p5": "^0.7.2",
+        "shake.js": "^1.2.2"
     },
     "devDependencies": {
         "ajv": "^6.3.0",
